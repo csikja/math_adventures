@@ -1,0 +1,246 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\input{preamble_packages.tex}
+\input{preamble_tikz.tex}
+\input{preamble_beamer.tex}
+\input{preamble_math.tex}
+
+\newcommand{\hl}[2][tkplightyellow]{\mathchoice%
+ {\colorbox{#1}{$\displaystyle#2$}}%
+ {\colorbox{#1}{$\textstyle#2$}}%
+ {\colorbox{#1}{$\scriptstyle#2$}}%
+ {\colorbox{#1}{$\scriptscriptstyle#2$}}}%
+
+
+% \usefonttheme[onlymath]{serif}
+\usepackage[sfdefault, lining]{FiraSans}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+
+
+\renewcommand{\emph}[1]{{\bf #1}}
+
+
+\newcommand{\nb}[2]{(#1)_{#2}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\title{A Gausz-függvény univerzalitása}
+\date{\today}
+\author{Csikja Rudolf}
+
+\begin{document}
+\begin{frame}{}
+\titlepage
+\end{frame}
+
+\begin{frame}{}
+\tableofcontents
+\end{frame}
+
+
+\section{Bevezetés}
+\begin{frame}[t]{A harang görbe jelentősége}
+
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{center}
+\includegraphics[scale=0.08]{Carl_Friedrich_Gauss_1840.jpg}\\
+Carl Friedrich Gauss (1777--1855) 
+\end{center}
+
+
+\end{column}
+\begin{column}{0.6\textwidth}
+Johann Carl Friedrich Gauss német matematikus, csillagász, geodéta és fizikus.
+\end{column}
+ 
+\end{columns}
+\end{frame}
+
+\section{A Gauss függvény elemi vizsgálata}
+
+\subsection{Alapvető tulajdonságok}
+\begin{frame}{Definíció}
+ \begin{columns}
+\begin{column}{0.45\textwidth}
+
+\begin{blockdef}[~ (Gauss függvény)]
+A valós $g\colon \R \to \R$ függvényt
+\[g(x) := \exp\left(-\frac{x^2}{2}\right)\]
+(standard) Gauss függvénynek hívjuk.
+\end{blockdef}
+\end{column}
+\begin{column}{0.45\textwidth}
+ \input{gauss_standard.tex}
+\end{column}
+ 
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Alapvető tulajdonságok}
+A következő tételben a Gauss függvény néhány alapvető tulajdonságát fogalmazzuk meg.
+\begin{blockthm}
+A Gauss függvény az alábbi tulajdonságokkal rendelkezik:
+\begin{enumerate}[a)]
+ \item Minden $x\in\R$ esetén $g(x) > 0$.
+ \item Globális maximuma van az $x=0$ pontban, és monoton növekvő a $(-\infty, 0),$ illetve monoton csökkenő a $(0, +\infty)$ intervallumon.
+ \item Inflexiós pontja van az $x=1$ és $x=-1$ pontokban, továbbá konkáv a $(-\infty, -1)$ és az $(1, +\infty)$ intervallumokon, illetve konvex a $(-1, 1)$ intervallumon.
+\end{enumerate}
+\end{blockthm}
+
+\begin{exercise}
+ Bizonyítsuk be a fenti tétel!
+\end{exercise}
+
+\end{frame}
+
+
+
+
+\begin{frame}[t]{A cos függvény hatványai}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\[f_n(x):=\cos^n(x), \quad x\in(-\pi/2, \pi/2)\] 
+\begin{center}
+\input{cos_series.tex}
+\end{center}
+Az $s_n$ inflexiós pontokban
+\[f_n(s_n) \to \frac{1}{\sqrt{e}}\]
+\end{column}
+\begin{column}{0.6\textwidth}
+A probléma, hogy $s_n\to0,$ miközben a Gauss függvény inflexiós pontja $\pm1.$
+A megoldás, hogy minden egyes függvényre újraskálázzuk az értelmezési tartományt úgy,
+hogy az új függvénynek $\pm1$ pontban legyen az inflexiós pontja:
+\[F_n(x):=f_n(s_n x) = \cos^n(s_n x), \quad  -\frac{\pi}{2s_n} \le x \le \frac{\pi}{2s_n}.\]
+\begin{exercise}
+Bizonyítsuk be, hogy
+\[F_n''(1) = 0 \quad \text{és}\quad  F_n(1)\to g(1) = 1/\sqrt{e}\].
+\end{exercise}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\subsection{Maximummal rendelkező függvények nagy hatványai}
+\begin{frame}[t]{}
+\begin{columns}
+  \begin{column}{0.6\textwidth}
+    \begin{blocklem}
+      Az $f_n$ függvény pozitív inflexiós pontja
+      \[s_n = \arctan\left(\frac{1}{\sqrt{n-1}}\right), \quad n\ge 2\]
+    \end{blocklem}
+    \begin{exercise}
+     Bizonyítsuk be, hogy az $F_n$ függvények értelmezési tartománya
+     tart a $(-\infty, +\infty)$ intervallumhoz.
+    \end{exercise}
+    \begin{exercise}
+     Végezzük el az eddigi számításokat az
+     \begin{enumerate}[a)]
+      \item $f_n(x):=\left(1+x^2\right)^{-n},$ $x\in(-\infty, \infty)$
+      \item $f_n(x):=\cosh(x)^{-n},$ $x\in(-\infty, \infty)$
+     \end{enumerate}
+      függvényekre.
+    \end{exercise}    
+
+  \end{column}
+  
+  \begin{column}{0.4\textwidth}
+    \begin{alertblock}{Az átskálázott függvények}
+      \[F_n(x) = \cos^n \left( \arctan\left(\frac{1}{\sqrt{n-1}}\right) x\right)\]
+    \end{alertblock}
+    \begin{center}
+      \input{cos_series_scaled.tex}
+    \end{center}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]{}
+\begin{blockthm}{}
+Legyen $h\colon[-a,a]\to\R^+$ egy olyan páros függvény, amelyre $h(0)=1, h'(0)=0$ és
+$h''(0)<0,$ ekkor a $g_n(x) = h^n(s_n x)$ függvénysorozatra
+\[\lim_{n\to\infty} g_n(x) = g(x) = e^{-\frac{x^2}{2}},\]
+ahol
+\[s_n = \sqrt{\frac{2}{h''(0)}} \cdot \frac{1}{\sqrt{2n-1}} = O\left(\frac{1}{\sqrt{n}}\right)\]
+\end{blockthm}
+\[f(s_n x) = F_n(x) = \left(1-\frac{x^2}{n}\right)^n, \quad x\in (-\sqrt{n}, \sqrt{n})\]
+ami határértékben
+\[F(x) = \lim_{n\to\infty} F_n(x) = \lim_{n\to\infty}\left(1-\frac{x^2}{n}\right)^n = e^{-x^2}, \quad x\in(-\infty, +\infty)\]
+\end{frame}
+
+  
+  
+\subsection{A Gauss fügvény integrálja}
+\begin{frame}[t]{A Gauss függvény integrálja}
+  \begin{blockthm}
+  \[\int_{-\infty}^{+\infty} g(x)\, dx = \sqrt{\pi}\]
+  \end{blockthm}
+\end{frame}
+
+\begin{frame}[t]{}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+   
+  \end{column}
+  
+  \begin{column}{0.5\textwidth}
+ \begin{center}
+    \input{cos_series_scaled.tex}
+    \end{center}
+  \end{column}
+  \end{columns}
+  \end{frame}
+
+  \subsection{A Gauss fügvény integrálja}
+  \begin{frame}[t]{A Gauss függvény integrálja}
+  \begin{blockthm}
+  \[\int_{-\infty}^{+\infty} g(x)\, dx = \sqrt{\pi}\]
+  \end{blockthm}
+\end{frame}
+
+\begin{frame}[t]{}
+ \begin{block}{Ez egy általános blokk}
+Transzformáció:
+\[G_{\mu, \sigma}(x) := g\left(\frac{x-\mu}{\sigma}\right)\]
+\end{block}
+
+\begin{alertblock}{Figyelem!}
+Transzformáció:
+\[G_{\mu, \sigma}(x) := g\left(\frac{x-\mu}{\sigma}\right)\]
+\end{alertblock}
+\end{frame}
+
+\section{Fourier-transzformáció}
+
+\section{A hővezetési egyenlet}
+\begin{frame}[t]{A hővezetés egyenlete}
+\begin{blockdef}{Hővezetési egyenlet}
+\[\partial_0 u (t,x) = -D\partial^2_1 u(t,x)\] 
+\end{blockdef}
+\end{frame}
+
+
+\section{Megoldások}
+
+\begin{frame}[t]{}
+Az a) állítás egyenesen következik az exponenciális függvény azon tulajdonságából, hogy mindig pozitív: $\exp(x)>0$.
+
+A monotonitás vizsgálatához a függvény deriváltja: $g'(x)=-xg(x),$ és mivel $g(x)>0,$ ezért a derivált előjelét a $(-x)$
+tag előjele dönti el, amiből a b) és c) állítás már adódik.
+A globális maximum $g(0) = 1$ az előző két állításból következik.
+
+Az inflexiós pontok meghatározásához a második deriváltat vizsgáljuk: $g''(x) = (x^2-1)g(x).$
+A $g$ függvény a $(-\infty, -1)$ és az $(1, +\infty)$ intervallumokon 
+konkáv ($g''(x)>0$), illetve a $(-1, 1)$ intervallumon konvex ($g''(x)<0$).
+A $g''$ függvénynek zérushelye, és így a $g$ függvénynek inflexiós pontja van az $x=\pm1$ pontokban.
+\end{frame}
+
+\begin{frame}[t]{}
+\[f''_n(x) = n\cos^{n-2}(x)\left((n-1)\sin^2(x) - cos^2(x)\right)\]
+\end{frame}
+\end{document}

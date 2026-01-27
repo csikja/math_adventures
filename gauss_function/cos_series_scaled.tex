@@ -1,0 +1,21 @@
+\pgfplotsset{width=\columnwidth,compat=1.9}
+\begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        xmin = -3.5, xmax = 3.5,
+        ymin = -0.0, ymax = 1.1,
+        mark=none,
+        xtick={-1,0,1},
+        ytick={0,{1/sqrt(e)}, 1},
+        xticklabels={$-1$,$0$,$1$},
+        yticklabels={$0$,$\dfrac{1}{\sqrt e}$,$1$},
+        grid=major,
+        minor tick num=0,
+    ]
+    \addplot[color=PBlue, fill=PBlue, opacity=0.2, domain=-5:5, thick, samples=150]{exp(-(x^2/2))};
+    \addplot[color=PDarkBrown, opacity=0.4, domain=-2:2, thick, samples=150]{cos(x * 45)^2};
+    \addplot[color=PDarkBrown, opacity=0.6, domain=-2.553:2.553, thick, samples=150]{cos(x * atan(1/sqrt(2)))^3};
+    \addplot[color=PDarkBrown, opacity=0.8, domain=-3:3, thick, samples=150]{cos(x * 30)^4};
+    \addplot[color=PDarkBrown, opacity=1.0, domain=-3.389:3.389, thick, samples=150]{cos(x * atan(0.5))^5};
+    \end{axis}
+    
+\end{tikzpicture}

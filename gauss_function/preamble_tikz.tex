@@ -1,0 +1,67 @@
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{tikzmark,positioning}
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+% 
+% \definecolor{tkpblue}{rgb}{0.0, 0.627, 0.961}
+% \definecolor{tkplightblue}{rgb}{0.455, 0.769, 0.937}
+% \definecolor{tkplightgrey}{rgb}{0.851, 0.871, 0.910}
+% \definecolor{tkpdarkgrey}{rgb}{0.3, 0.3, 0.35}     % for subtle lines or labels
+% \definecolor{tkptext}{rgb}{0.294, 0.333, 0.392}
+% \definecolor{tkphighlight}{rgb}{0.9, 0.5, 0.2}
+% \definecolor{tkpgreen}{rgb}{0.2, 0.65, 0.35}    % fresh green
+% \definecolor{tkpteal}{rgb}{0.0, 0.6, 0.6}       % balanced teal
+% \definecolor{tkppurple}{rgb}{0.5, 0.3, 0.7}     % gentle violet
+% \definecolor{tkpyellow}{rgb}{0.95, 0.75, 0.1}   % rich yellow
+% \definecolor{tkplightyellow}{rgb}{1.0, 0.95, 0.75}
+% \definecolor{tkpred}{rgb}{0.85, 0.2, 0.2}       % vivid red
+% \definecolor{tkpbrown}{rgb}{0.6, 0.4, 0.2}      % earthy brown
+% \definecolor{tkpmidgrey}{rgb}{0.6, 0.6, 0.7}       % for background reference
+
+\definecolor{rd}{RGB}{178,34,34}
+\definecolor{rd2}{RGB}{230,0,0}
+\definecolor{gr}{RGB}{107,142,35}
+\definecolor{gr2}{RGB}{0,209,0}
+\definecolor{bl}{rgb}{0.0, 0.627, 0.961}
+\definecolor{grey}{rgb}{0.651, 0.671, 0.710}
+\definecolor{or}{RGB}{255,128,0}
+
+
+% \pgfplotscreateplotcyclelist{tkpcolors}{
+%   {color=tkpblue},
+%   {color=tkpbrown},
+%   {color=tkpred},
+%   {color=tkpgreen},
+%   {color=tkppurple},
+%   {color=tkpteal}
+% }
+% 
+% \pgfplotsset{
+%   every axis/.append style={
+%     cycle list name=tkpcolors
+%   }
+% }
+% 
+% \pgfplotsset{
+%     colormap/tkpbluebrown/.style={
+%         colormap={tkpbluebrown}{
+%             rgb=(0.0, 0.627, 0.961)   % tkpblue
+%             rgb=(0.9, 0.5, 0.2)      % tkphighlight (bridge color)
+%             rgb=(0.6, 0.4, 0.2)      % tkpbrown
+%         }
+%     }
+% }
+% 
+% 
+% \pgfplotsset{
+%     colormap/tkpbluegreen/.style={
+%         colormap={tkpbluegreen}{
+%             rgb=(0.0, 0.627, 0.961)    % tkpblue
+%             rgb=(0.0, 0.6, 0.6)        % tkpteal
+%             rgb=(0.2, 0.65, 0.35)      % tkpgreen
+%             rgb=(0.95, 0.75, 0.1)      % tkpyellow
+%             rgb=(0.9, 0.5, 0.2)        % tkphighlight
+%         }
+%     }
+% }

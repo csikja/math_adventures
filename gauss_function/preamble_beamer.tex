@@ -1,0 +1,86 @@
+\definecolor{PGreen}{HTML}{CDECCB}
+\definecolor{POrange}{HTML}{FFE2C2}
+\definecolor{PBlue}{HTML}{5E8CCB}
+\definecolor{Charcoal}{HTML}{1F1F1F}
+
+% Extra complementary colors:
+\definecolor{PLightBrown}{HTML}{D6BFA3}  
+\definecolor{PMedBrown}{HTML}{A67855}  
+\definecolor{PDarkBrown}{HTML}{4B2E1E}
+
+\definecolor{PLightBlue}{HTML}{B8D9EB}% light sky blue
+\definecolor{PLightGray}{HTML}{E6E6E6} % for subtle backgrounds
+\definecolor{PPurple}{HTML}{C4B4D9}     % muted pastel purple
+\definecolor{PYellow}{HTML}{F9EBA5}     % slightly darker pastel yellow
+\definecolor{PMauve}{HTML}{BFA1C8}  % pasztell lila
+\usetheme[progressbar=none, numbering=fraction, titleformat=smallcaps]{metropolis}           % Use metropolis theme
+\setbeamercolor{progress bar}{fg=PBlue}
+\setbeamercolor{progress bar in head/foot}{fg=PBlue}
+\setbeamercolor{progress bar in section page}{fg=PBlue}
+
+
+
+
+\setbeamercolor{normal text}{fg=Charcoal,bg=white}
+\setbeamercolor{structure}{fg=PBlue}
+
+% Headline & titles
+\setbeamercolor{title}{fg=PBlue!60!black}
+\setbeamercolor{frametitle}{fg=white,bg=PBlue}
+\setbeamercolor{titlelike}{fg=PBlue!60!black}
+\setbeamercolor{title separator}{fg=PBlue}
+
+% Blocks
+\setbeamercolor{block title}{fg=Charcoal,bg=PLightGray!80}
+\setbeamercolor{block body}{fg=Charcoal,bg=PLightGray!30}
+
+\setbeamercolor{alerted text}{fg=POrange!70!red}
+
+\setbeamercolor{block title alerted}{fg=Charcoal,bg=POrange}
+\setbeamercolor{block body alerted}{fg=Charcoal,bg=POrange!50}
+% 
+
+% ---------- Section-szerinti számláló ----------
+\newcounter{thm}[section]
+\renewcommand{\thethm}{\thesection.\arabic{thm}}
+
+% ---------- Saját theorem környezet ----------
+\newenvironment{blockthm}[1][]{%
+  \refstepcounter{thm}%
+  \setbeamercolor{block title}{fg=Charcoal,bg=PLightBlue!80}%
+  \setbeamercolor{block body}{fg=Charcoal,bg=PLightBlue!30}%
+  \begin{block}{\thethm. Tétel#1}%
+}{%
+  \end{block}%
+}
+
+% ---------- Saját definition környezet ----------
+\newenvironment{blockdef}[1][]{%
+  \refstepcounter{thm}%
+  \setbeamercolor{block title}{fg=Charcoal,bg=PYellow!80}%
+  \setbeamercolor{block body}{fg=Charcoal,bg=PYellow!30}%
+  \begin{block}{\thethm. Definíció#1}%
+}{%
+  \end{block}%
+}
+
+% ---------- Saját lemma környezet ----------
+\newenvironment{blocklem}[1][]{%
+  \refstepcounter{thm}%
+  \setbeamercolor{block title}{fg=Charcoal,bg=PPurple!80}%
+  \setbeamercolor{block body}{fg=Charcoal,bg=PPurple!30}%
+  \begin{block}{\thethm. Lemma#1}%
+}{%
+  \end{block}%
+}
+
+
+% ---------- Saját lemma környezet ----------
+\newenvironment{exercise}[1][]{%
+  \refstepcounter{thm}%
+  \setbeamercolor{block title}{fg=Charcoal,bg=PGreen!80}%
+  \setbeamercolor{block body}{fg=Charcoal,bg=PGreen!30}%
+  \begin{block}{\thethm. Feladat#1}%
+}{%
+  \end{block}%
+}
