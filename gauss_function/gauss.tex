@@ -93,9 +93,14 @@ A Gauss függvény az alábbi tulajdonságokkal rendelkezik:
 \end{blockthm}
 
 \begin{exercise}
- Bizonyítsuk be a fenti tétel!
+ Bizonyítsuk be a fenti tételt!
 \end{exercise}
 
+\end{frame}
+
+
+\begin{frame}[t]{Általános Gauss-függvények}
+\[G_{\mu,\sigma}(x) := g\left(\frac{x-\mu}{\sigma}\right), \qquad g(x) = G_{\mu,\sigma}(\sigma(x+\mu))\] 
 \end{frame}
 
 
@@ -115,10 +120,10 @@ Az $s_n$ inflexiós pontokban
 A probléma, hogy $s_n\to0,$ miközben a Gauss függvény inflexiós pontja $\pm1.$
 A megoldás, hogy minden egyes függvényre újraskálázzuk az értelmezési tartományt úgy,
 hogy az új függvénynek $\pm1$ pontban legyen az inflexiós pontja:
-\[F_n(x):=f_n(s_n x) = \cos^n(s_n x), \quad  -\frac{\pi}{2s_n} \le x \le \frac{\pi}{2s_n}.\]
+\[g_n(x):=f_n(s_n x) = \cos^n(s_n x), \quad  -\frac{\pi}{2s_n} \le x \le \frac{\pi}{2s_n}.\]
 \begin{exercise}
 Bizonyítsuk be, hogy
-\[F_n''(1) = 0 \quad \text{és}\quad  F_n(1)\to g(1) = 1/\sqrt{e}\].
+\[g_n''(1) = 0 \quad \text{és}\quad  \lim_{n\to\infty}g_n(1) = g(1) = 1/\sqrt{e}\].
 \end{exercise}
 
 \end{column}
@@ -126,7 +131,7 @@ Bizonyítsuk be, hogy
 
 \end{frame}
 
-\subsection{Maximummal rendelkező függvények nagy hatványai}
+\subsection{Maximummal rendelkező függvények magas hatványai}
 \begin{frame}[t]{}
 \begin{columns}
   \begin{column}{0.6\textwidth}
@@ -135,7 +140,7 @@ Bizonyítsuk be, hogy
       \[s_n = \arctan\left(\frac{1}{\sqrt{n-1}}\right), \quad n\ge 2\]
     \end{blocklem}
     \begin{exercise}
-     Bizonyítsuk be, hogy az $F_n$ függvények értelmezési tartománya
+     Bizonyítsuk be, hogy az $g_n$ függvények értelmezési tartománya
      tart a $(-\infty, +\infty)$ intervallumhoz.
     \end{exercise}
     \begin{exercise}
@@ -151,13 +156,27 @@ Bizonyítsuk be, hogy
   
   \begin{column}{0.4\textwidth}
     \begin{alertblock}{Az átskálázott függvények}
-      \[F_n(x) = \cos^n \left( \arctan\left(\frac{1}{\sqrt{n-1}}\right) x\right)\]
+      \[g_n(x) = \cos^n \left( \arctan\left(\frac{1}{\sqrt{n-1}}\right) x\right)\]
     \end{alertblock}
     \begin{center}
       \input{cos_series_scaled.tex}
     \end{center}
   \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Univerzális konvergencia a Gauss-függvényhez}
+    \begin{blockthm}{Tétel}
+        Legyen $I \subseteq \mathbb{R}$ intervallum, ahol $0 \in \text{int}(I)$. Legyen $h: I \to \mathbb{R}$ olyan függvény, amelyre:
+        \begin{itemize}
+            \item \textbf{Maximum:} $h(0) = 1$ és $|h(x)| < 1$ minden $x \in I \setminus \{0\}$ esetén.
+            \item \textbf{Simaság:} $h \in C^2$ a $0$ környezetében, $h'(0) = 0$ és $h''(0) < 0$.
+        \end{itemize}
+        Ekkor a $g_n(x) = h^n(s_n x)$ függvénysorozat pontonként tart a standard normális eloszlás magjához:
+        \[ \lim_{n\to\infty} g_n(x) = e^{-\frac{x^2}{2}} \]
+        ahol a skálázási tényező aszimptotikusan:
+        \[ s_n \sim \frac{1}{\sqrt{n \cdot \frac{|h''(0)|}{2}}} \]
+    \end{blockthm}
 \end{frame}
 
 \begin{frame}[t]{}
