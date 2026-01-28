@@ -6,7 +6,7 @@
 \input{preamble_beamer.tex}
 \input{preamble_math.tex}
 
-\newcommand{\hl}[2][tkplightyellow]{\mathchoice%
+\newcommand{\hl}[2][hlyellow]{\mathchoice%
  {\colorbox{#1}{$\displaystyle#2$}}%
  {\colorbox{#1}{$\textstyle#2$}}%
  {\colorbox{#1}{$\scriptstyle#2$}}%
@@ -113,57 +113,59 @@ A Gauss függvény az alábbi tulajdonságokkal rendelkezik:
 \begin{center}
 \input{cos_series.tex}
 \end{center}
-Az $s_n$ inflexiós pontokban
-\[f_n(s_n) \to \frac{1}{\sqrt{e}}\]
+\[\lim_{n\to\infty}f_n(s_n) = \frac{1}{\sqrt{e}}.\]
 \end{column}
 \begin{column}{0.6\textwidth}
-A probléma, hogy $s_n\to0,$ miközben a Gauss függvény inflexiós pontja $\pm1.$
-A megoldás, hogy minden egyes függvényre újraskálázzuk az értelmezési tartományt úgy,
-hogy az új függvénynek $\pm1$ pontban legyen az inflexiós pontja:
+A probléma, hogy az inflexiós pontok a nullához tartanak, és így a függvények egyre elvékonyodnak.
+Sőt, az $f_n(x)$ értékek az origón kívül mindenhol nullához tartanak. 
+Viszont, ha minden egyes függvénynek az inflexiós pontját az $x=1$
+pontba transzformáljuk, akkor az így kapott új függvény-sorozat nem vékonyodik el.
+Ezt úgy érhetjük el, hogy minden egyes függvényre átskálázzuk az értelmezési tartományt:
 \[g_n(x):=f_n(s_n x) = \cos^n(s_n x), \quad  -\frac{\pi}{2s_n} \le x \le \frac{\pi}{2s_n}.\]
-\begin{exercise}
-Bizonyítsuk be, hogy
-\[g_n''(1) = 0 \quad \text{és}\quad  \lim_{n\to\infty}g_n(1) = g(1) = 1/\sqrt{e}\].
-\end{exercise}
-
 \end{column}
 \end{columns}
 
 \end{frame}
 
 \subsection{Maximummal rendelkező függvények magas hatványai}
-\begin{frame}[t]{}
-\begin{columns}
-  \begin{column}{0.6\textwidth}
-    \begin{blocklem}
-      Az $f_n$ függvény pozitív inflexiós pontja
-      \[s_n = \arctan\left(\frac{1}{\sqrt{n-1}}\right), \quad n\ge 2\]
-    \end{blocklem}
-    \begin{exercise}
-     Bizonyítsuk be, hogy az $g_n$ függvények értelmezési tartománya
-     tart a $(-\infty, +\infty)$ intervallumhoz.
+\begin{frame}[t]{Lokális koordináta}
+Az $f_n$ függvény pozitív inflexiós pontja, és így az átskálázott $g_n$ függvény
+\[\hl{s_n = \arctan\left(\frac{1}{\sqrt{n-1}}\right), \quad g_n(x) = \cos^n \left( \arctan\left(\frac{1}{\sqrt{n-1}}\right) x\right) \quad n\ge 2}\]
+ \begin{center}
+    \input{cos_series_scaled.tex}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]{Feladatok}
+ \begin{columns}
+  \begin{column}[t]{0.5\textwidth}
+     \begin{exercise}
+    Határozzuk meg az $f_n$ függvény $s_n > 0$ inflexiós pontját a $f_n''(s_n) = 0$ egyenlet megoldásával!
     \end{exercise}
     \begin{exercise}
-     Végezzük el az eddigi számításokat az
+    Bizonyítsuk be, hogy
+    \begin{itemize}
+     \item $g_n''(1) = 0$
+     \item $\lim_{n\to\infty}g_n(1) = 1/\sqrt{e}$
+     \item $\lim_{n\to\infty} \dom(g_n) = (-\infty, +\infty)$
+    \end{itemize}
+    \end{exercise}
+  \end{column}
+  
+  \begin{column}[t]{0.5\textwidth}
+    \begin{exercise}
+     Ismételjük meg az eddigi számításokat az
      \begin{enumerate}[a)]
       \item $f_n(x):=\left(1+x^2\right)^{-n},$ $x\in(-\infty, \infty)$
       \item $f_n(x):=\cosh(x)^{-n},$ $x\in(-\infty, \infty)$
+      \item $f_n(x):=(1 - x^2)^n,$ $x\in(-1, 1)$
      \end{enumerate}
       függvényekre.
     \end{exercise}    
-
-  \end{column}
-  
-  \begin{column}{0.4\textwidth}
-    \begin{alertblock}{Az átskálázott függvények}
-      \[g_n(x) = \cos^n \left( \arctan\left(\frac{1}{\sqrt{n-1}}\right) x\right)\]
-    \end{alertblock}
-    \begin{center}
-      \input{cos_series_scaled.tex}
-    \end{center}
   \end{column}
 \end{columns}
 \end{frame}
+
 
 \begin{frame}{Univerzális konvergencia a Gauss-függvényhez}
     \begin{blockthm}{Tétel}
@@ -175,18 +177,17 @@ Bizonyítsuk be, hogy
         Ekkor a $g_n(x) = h^n(s_n x)$ függvénysorozat pontonként tart a standard normális eloszlás magjához:
         \[ \lim_{n\to\infty} g_n(x) = e^{-\frac{x^2}{2}} \]
         ahol a skálázási tényező aszimptotikusan:
-        \[ s_n \sim \frac{1}{\sqrt{n \cdot \frac{|h''(0)|}{2}}} \]
+        \[ s_n \sim \frac{1}{\sqrt{n\cdot |h''(0)|}} \]
     \end{blockthm}
 \end{frame}
 
 \begin{frame}[t]{}
-\begin{blockthm}{}
-Legyen $h\colon[-a,a]\to\R^+$ egy olyan páros függvény, amelyre $h(0)=1, h'(0)=0$ és
-$h''(0)<0,$ ekkor a $g_n(x) = h^n(s_n x)$ függvénysorozatra
-\[\lim_{n\to\infty} g_n(x) = g(x) = e^{-\frac{x^2}{2}},\]
-ahol
+A tétel bizonyítása azon az észrevételen alapul, hogy a korábban elvégzett számításokat
+megismételhetjük egy olyan tetszőleges $h$ függvényre, amelynek létezik a nulla körüli másodfokú Taylor-közelítése:
+\[h(x) = h(0) + h'(0) x + \frac{h''(0)}{2} x^2 + o(x^2),\]
+ahol $o(x^2)$ azt jelenti, hogy a maradék gyorsabban tart nullához, mint $x\mapsto x^2,$ vagyis $\lim_{x\to 0} r(x)/x^2 = 0.$ 
+
 \[s_n = \sqrt{\frac{2}{h''(0)}} \cdot \frac{1}{\sqrt{2n-1}} = O\left(\frac{1}{\sqrt{n}}\right)\]
-\end{blockthm}
 \[f(s_n x) = F_n(x) = \left(1-\frac{x^2}{n}\right)^n, \quad x\in (-\sqrt{n}, \sqrt{n})\]
 ami határértékben
 \[F(x) = \lim_{n\to\infty} F_n(x) = \lim_{n\to\infty}\left(1-\frac{x^2}{n}\right)^n = e^{-x^2}, \quad x\in(-\infty, +\infty)\]
@@ -208,9 +209,7 @@ ami határértékben
   \end{column}
   
   \begin{column}{0.5\textwidth}
- \begin{center}
-    \input{cos_series_scaled.tex}
-    \end{center}
+
   \end{column}
   \end{columns}
   \end{frame}
