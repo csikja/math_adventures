@@ -63,18 +63,21 @@ Johann Carl Friedrich Gauss német matematikus, csillagász, geodéta és fiziku
 \section{A Gauss függvény elemi vizsgálata}
 
 \subsection{Alapvető tulajdonságok}
-\begin{frame}{Definíció}
- \begin{columns}
-\begin{column}{0.45\textwidth}
-
+\begin{frame}{A Standard Gauss-függvény}
 \begin{blockdef}[~ (Gauss függvény)]
 A valós $g\colon \R \to \R$ függvényt
 \[g(x) := \exp\left(-\frac{x^2}{2}\right)\]
 (standard) Gauss függvénynek hívjuk.
 \end{blockdef}
+ \begin{columns}
+\begin{column}{0.45\textwidth}
+\begin{center}
+  \input{gauss_standard.tex}
+\end{center}
+
 \end{column}
 \begin{column}{0.45\textwidth}
- \input{gauss_standard.tex}
+
 \end{column}
  
 \end{columns}
@@ -86,7 +89,7 @@ A következő tételben a Gauss függvény néhány alapvető tulajdonságát fo
 \begin{blockthm}
 A Gauss függvény az alábbi tulajdonságokkal rendelkezik:
 \begin{enumerate}[a)]
- \item Minden $x\in\R$ esetén $g(x) > 0$.
+ \item Pozitív és páros. 
  \item Globális maximuma van az $x=0$ pontban, és monoton növekvő a $(-\infty, 0),$ illetve monoton csökkenő a $(0, +\infty)$ intervallumon.
  \item Inflexiós pontja van az $x=1$ és $x=-1$ pontokban, továbbá konkáv a $(-\infty, -1)$ és az $(1, +\infty)$ intervallumokon, illetve konvex a $(-1, 1)$ intervallumon.
 \end{enumerate}
@@ -99,8 +102,12 @@ A Gauss függvény az alábbi tulajdonságokkal rendelkezik:
 \end{frame}
 
 
-\begin{frame}[t]{Általános Gauss-függvények}
+\begin{frame}[t]{A Gauss-függvények családja}
+Minden nem standard Gauss függvény megkapható a standard változat eltolásával és skálázásával,
+pontosabban:
 \[G_{\mu,\sigma}(x) := g\left(\frac{x-\mu}{\sigma}\right), \qquad g(x) = G_{\mu,\sigma}(\sigma(x+\mu))\] 
+\[G_{\mu_1,\sigma_1}(x) G_{\mu_2,\sigma_2}(x) = G_{\mu,\sigma}(x)\]
+\[\mu = \mu_1 \frac{\sigma_2}{\sigma_1 + \sigma_2} + \mu_2 \frac{\sigma_1}{\sigma_1 + \sigma_2}\]
 \end{frame}
 
 
