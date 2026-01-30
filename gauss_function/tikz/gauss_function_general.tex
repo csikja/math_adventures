@@ -1,0 +1,17 @@
+\pgfplotsset{width=0.5\columnwidth,compat=1.9}
+\begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        xmin = -4, xmax = 19,
+        ymin = -0.0, ymax = 1.1,
+        mark=none,
+        xtick={0,7,10,13},
+        ytick={0,{1/sqrt(e)}, 1},
+        xticklabels={$0$,$\mu-\sigma$, $\mu$, $\mu+\sigma$},
+        yticklabels={$0$,$\dfrac{1}{\sqrt e}$,$1$},
+        grid=major,
+        minor tick num=0,
+    ]
+    \addplot[color=POrange, fill=POrange, fill opacity=0.5, domain=-5:20, thick, samples=150]{exp(-(x^2/2))};
+    \addplot[color=PBlue, fill=PBlue, fill opacity=0.5, domain=-4:20, thick, samples=150]{exp(-((x-10)^2/(2*3^2))};
+\end{axis}
+\end{tikzpicture}
