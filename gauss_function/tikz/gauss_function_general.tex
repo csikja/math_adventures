@@ -1,4 +1,4 @@
-\pgfplotsset{width=0.5\columnwidth,compat=1.9}
+\pgfplotsset{width=1\columnwidth,compat=1.9}
 \begin{tikzpicture}[scale=1]
     \begin{axis}[
         xmin = -4, xmax = 19,
@@ -11,7 +11,7 @@
         grid=major,
         minor tick num=0,
     ]
-    \addplot[color=POrange, fill=POrange, fill opacity=0.5, domain=-5:20, thick, samples=150]{exp(-(x^2/2))};
+    \addplot[color=PTerra, fill=PTerra, fill opacity=0.5, domain=-5:20, thick, samples=150]{exp(-(x^2/2))};
     \addplot[color=PBlue, fill=PBlue, fill opacity=0.5, domain=-4:20, thick, samples=150]{exp(-((x-10)^2/(2*3^2))};
 \end{axis}
 \end{tikzpicture}
